@@ -8,11 +8,6 @@ import useFetch from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
 
 const Product = () => {
-  const imgData = [
-    "https://j-p.vn/vnt_upload/news/11_2021/Ao_thun_T-shirt_la_gi.jpg",
-    " https://aristino.com/Data/ResizeImage/images/product/ao-tshirt/ats039s2/ao-thun-nam-aristino-ATS039S2-09x500x500x4.webp",
-  ];
-
   const [selectedImg, setSelectedImg] = useState("img");
   const [quantity, setQuantity] = useState(1);
   const id = useParams().id;
@@ -57,9 +52,7 @@ const Product = () => {
         <span className="text-xl text-blue-500 font-semibold">
           ${data?.attributes.price}
         </span>
-        <p>
-        {data?.attributes.desc}
-        </p>
+        <p>{data?.attributes.desc}</p>
         <div className="flex  items-center space-x-4">
           <button
             className="px-6 py-4 bg-gray-300 cursor-pointer"
