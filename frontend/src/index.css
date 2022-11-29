@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+
+@layer components {
+  .sliderH {
+    height: calc(100vh - 80px);
+  }
+
+  .clm {
+    flex: 1;
+  }
+
+  .clml {
+    flex: 2;
+  }
+
+  .flex1 {
+    flex: 1;
+  }
+
+  .flex3 {
+    flex: 3;
+  }
+
+  .flex5 {
+    flex: 5;
+  }
+}
+
+@tailwind utilities;
