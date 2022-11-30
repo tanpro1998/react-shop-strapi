@@ -5,7 +5,6 @@ import useFetch from "../hooks/useFetch";
 
 const Category = () => {
   const catId = parseInt(useParams().id);
-  console.log(catId);
   const [maxPrice, setMaxPrice] = useState(1000);
   const [sort, setSort] = useState(null);
   const [selectedSub, setSelectedSub] = useState([]);
@@ -53,6 +52,7 @@ const Category = () => {
               min={0}
               max={1000}
               onChange={(e) => setMaxPrice(e.target.value)}
+              className="cursor-pointer"
             />
             <span>{maxPrice}</span>
           </div>
@@ -66,8 +66,11 @@ const Category = () => {
               value="asc"
               name="price"
               onChange={(e) => setSort("asc")}
+              className="cursor-pointer"
             />
-            <label htmlFor="asc">Price (Lowest first)</label>
+            <label htmlFor="asc" className="cursor-pointer">
+              Price (Lowest first)
+            </label>
           </div>
           <div className="flex gap-4">
             <input
@@ -76,8 +79,11 @@ const Category = () => {
               value="desc"
               name="price"
               onChange={(e) => setSort("desc")}
+              className="cursor-pointer"
             />
-            <label htmlFor="desc">Price (Highest first)</label>
+            <label htmlFor="desc" className="cursor-pointer">
+              Price (Highest first)
+            </label>
           </div>
         </div>
       </div>
