@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "./Card";
 import useFetch from "../hooks/useFetch";
 
@@ -22,7 +22,7 @@ const FeaturesProduct = ({ type }) => {
           repellat, minima itaque.
         </p>
       </div>
-      <div className="flex space-x-12 justify-center mt-16">
+      <div className="flex flex-wrap space-x-12 justify-center mt-16">
         {loading
           ? "Loading"
           : error
