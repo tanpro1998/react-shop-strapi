@@ -13,7 +13,7 @@ const Categories = () => {
           <img
             src={uploadUrl + item?.attributes.img.data.attributes.url}
             alt=""
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover hover:opacity-50 transition duration-100"
           />
           <Link className="link" to={`/products/${item?.id}`}>
             <button className="absolute min-w-[100px] w-fit h-[50px] p-[10px] top-0 bottom-0 right-0 left-0 m-auto cursor-pointer border-none bg-white uppercase font-semibold hover:bg-blue-500 hover:text-white">
