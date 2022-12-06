@@ -31,7 +31,7 @@ const Navbar = () => {
           >
             <div className="flex items-center">
               <span>USD</span>
-              <ChevronDownIcon className="w-6" /> className="cursor-pointer"
+              <ChevronDownIcon className="w-6 " />
             </div>
             {menuOpen && (
               <div className="absolute top-10 p-2 border">

@@ -4,6 +4,7 @@ import useFetch from "../hooks/useFetch";
 import { uploadUrl } from "../utils/url";
 
 const Categories = () => {
+  // eslint-disable-next-line no-unused-vars
   const { data, loading, error } = useFetch(`/categories?populate=*`);
 
   return (
