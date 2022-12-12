@@ -8,7 +8,7 @@ import PinterestIcon from "@mui/icons-material/Pinterest";
 const Contact = () => {
   return (
     <div className="bg-blue-500 text-white flex justify-center p-4">
-      <div className="w-1/2 flex items-center justify-between">
+      <div className="w-1/2 flex flex-col md:flex-row items-center justify-between">
         <span className="uppercase">Be in touch with us:</span>
         <div>
           <input

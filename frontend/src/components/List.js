@@ -12,6 +12,8 @@ const List = ({ catId, sort, maxPrice, subCats }) => {
     <div className="flex justify-between gap-8 mt-8 flex-wrap ">
       {loading
         ? "Loading"
+        : error
+        ? "Something went wrong!"
         : data?.map((item) => <Card key={item.id} item={item} />)}
     </div>
   );

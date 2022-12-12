@@ -28,3 +28,7 @@
 }
 
 @tailwind utilities;
+
+html {
+  overflow-x: hidden;
+}

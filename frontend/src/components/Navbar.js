@@ -9,18 +9,20 @@ import {
   HeartIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [barOpen, setBarOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { products } = useSelector((state) => state.cart);
   return (
     <div className="px-4 py-2 sticky top-0 z-50 bg-white">
-      <div className="flex items-center justify-between h-[80px]">
-        <div className="flex items-center space-x-8">
+      <div className="flex items-center justify-between h-[80px] relative">
+        <div className="items-center space-x-8 hidden lg:flex ">
           <div className="flex items-center">
             <img src="/img/en.png" alt="" />
             <ChevronDownIcon className="w-6" />
@@ -42,33 +44,44 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <div className="cursor-pointer hover:scale-125 transition duration-75">
+          <div className="cursor-pointer hover:scale-125 hover:text-blue-500 hover:font-semibold transition duration-75">
             Men
           </div>
-          <div className="cursor-pointer hover:scale-125 transition duration-75">
+          <div className="cursor-pointer hover:scale-125 hover:text-blue-500 hover:font-semibold transition duration-75">
             Women
           </div>
-          <div className="cursor-pointer hover:scale-125 transition duration-75">
+          <div className="cursor-pointer hover:scale-125 hover:text-blue-500 hover:font-semibold transition duration-75">
             Children
           </div>
-          <div className="cursor-pointer hover:scale-125 transition duration-75">
+          <div className="cursor-pointer hover:scale-125 hover:text-blue-500 hover:font-semibold transition duration-75">
             Accessories
           </div>
         </div>
-        <div className="text-2xl uppercase font-bold">
+        {!barOpen ? (
+          <Bars3Icon
+            className="w-8 cursor-pointer lg:hidden z-50"
+            onClick={() => setBarOpen(true)}
+          />
+        ) : (
+          <XMarkIcon
+            className="w-8 cursor-pointer lg:hidden z-50"
+            onClick={() => setBarOpen(false)}
+          />
+        )}
+        <div className="text-2xl uppercase font-bold mx-auto">
           <Link to="/">FlashStore</Link>
         </div>
-        <div className="flex items-center space-x-8">
-          <div className="cursor-pointer hover:scale-125 transition duration-75">
+        <div className="items-center space-x-8 hidden lg:flex">
+          <div className="cursor-pointer hover:scale-125 hover:text-blue-500 hover:font-semibold transition duration-75">
             HomePage
           </div>
-          <div className="cursor-pointer hover:scale-125 transition duration-75">
+          <div className="cursor-pointer hover:scale-125 hover:text-blue-500 hover:font-semibold transition duration-75">
             About
           </div>
-          <div className="cursor-pointer hover:scale-125 transition duration-75">
+          <div className="cursor-pointer hover:scale-125 hover:text-blue-500 hover:font-semibold transition duration-75">
             Contact
           </div>
-          <div className="cursor-pointer hover:scale-125 transition duration-75">
+          <div className="cursor-pointer hover:scale-125 hover:text-blue-500 hover:font-semibold transition duration-75">
             Stores
           </div>
           <div className="flex items-center space-x-4 text-gray-500">
@@ -84,6 +97,26 @@ const Navbar = () => {
                 onClick={() => setOpen(!open)}
               />
             </div>
+          </div>
+        </div>
+        <div
+          style={{
+            transform: !barOpen ? "translateX(-100%)" : "translateX(0)",
+            transition: "all 0.5s ease-out",
+          }}
+          className=" absolute top-0 -left-5 flex flex-col items-center justify-center w-screen h-screen gap-20 bg-blue-300 lg:hidden"
+        >
+          <div className="cursor-pointer hover:scale-125 hover:text-blue-500 hover:font-semibold transition duration-75">
+            Men
+          </div>
+          <div className="cursor-pointer hover:scale-125 hover:text-blue-500 hover:font-semibold transition duration-75">
+            Women
+          </div>
+          <div className="cursor-pointer hover:scale-125 hover:text-blue-500 hover:font-semibold transition duration-75">
+            Children
+          </div>
+          <div className="cursor-pointer hover:scale-125 hover:text-blue-500 hover:font-semibold transition duration-75">
+            Accessories
           </div>
         </div>
       </div>

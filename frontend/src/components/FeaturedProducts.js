@@ -9,7 +9,7 @@ const FeaturesProduct = ({ type }) => {
 
   return (
     <div>
-      <div className="flex items-center justify-between px-4 py-2 mt-16 mx-32">
+      <div className="flex flex-col md:flex-row items-center justify-between px-4 py-2 mt-16 mx-32">
         <h1 className=" capitalize flex-1 text-2xl font-bold">
           {type} Products
         </h1>
@@ -22,7 +22,7 @@ const FeaturesProduct = ({ type }) => {
           repellat, minima itaque.
         </p>
       </div>
-      <div className="flex flex-wrap space-x-12 justify-center mt-16">
+      <div className="flex flex-wrap md:space-x-12 justify-center mt-16">
         {loading
           ? "Loading"
           : error

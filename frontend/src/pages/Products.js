@@ -28,20 +28,27 @@ const Category = () => {
       <div className="flex1 sticky top-[100px] h-full">
         <div className="mb-4">
           <h1 className="text-2xl mb-4">Products Categories</h1>
-          {data?.map((item) => (
-            <div className="flex gap-4" key={item.id}>
-              <input
-                type="checkbox"
-                id={item.id}
-                value={item.id}
-                onChange={handleChange}
-                className="cursor-pointer"
-              />
-              <label htmlFor={item.id} className="cursor-pointer capitalize">
-                {item.attributes.title}
-              </label>
-            </div>
-          ))}
+          {loading
+            ? "Loading..."
+            : error
+            ? "Something went wrong!"
+            : data?.map((item) => (
+                <div className="flex gap-4" key={item.id}>
+                  <input
+                    type="checkbox"
+                    id={item.id}
+                    value={item.id}
+                    onChange={handleChange}
+                    className="cursor-pointer"
+                  />
+                  <label
+                    htmlFor={item.id}
+                    className="cursor-pointer capitalize"
+                  >
+                    {item.attributes.title}
+                  </label>
+                </div>
+              ))}
         </div>
         <div>
           <h1 className="text-2xl mb-4">Filter by price</h1>

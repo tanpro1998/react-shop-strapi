@@ -18,22 +18,23 @@ const Product = () => {
   const dispatch = useDispatch();
 
   const transition = { type: "tween", duration: 1 };
+  // eslint-disable-next-line no-unused-vars
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
 
   return (
-    <div className="flex p-4">
+    <div className="flex flex-col md:flex-row p-4">
       <div className="clm flex gap-4">
         <div className="clm flex flex-col gap-4">
           <img
             src={uploadUrl + data?.attributes?.img?.data?.attributes?.url}
             alt=""
-            className="w-full h-[180px] object-cover cursor-pointer"
+            className="w-full h-[180px] object-cover cursor-pointer hover:opacity-50"
             onClick={() => setSelectedImg("img")}
           />
           <img
             src={uploadUrl + data?.attributes?.img1?.data?.attributes?.url}
             alt=""
-            className="w-full h-[200px] object-cover cursor-pointer"
+            className="w-full h-[200px] object-cover cursor-pointer hover:opacity-50"
             onClick={() => setSelectedImg("img1")}
           />
         </div>
@@ -105,9 +106,9 @@ const Product = () => {
           </div>
         </div>
         <div className="flex flex-col text-gray-400 gap-2 text-sm">
-          <span>Vendor: Polo</span>
-          <span>Product Type: T-shirt</span>
-          <span>Tag: T-shirt, Women, Top</span>
+          <span className=" capitalize">Vendor: {data?.attributes.title}</span>
+          <span className=" capitalize">Product Type: {data?.attributes.type}</span>
+          <span className=" capitalize">Tag: {data?.attributes.title}, Women, Top</span>
         </div>
         <hr />
         <div className=" uppercase flex flex-col gap-2">
